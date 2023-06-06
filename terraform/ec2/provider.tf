@@ -1,7 +1,6 @@
 provider "aws" {
   region  = "ap-southeast-1"
   profile = "datton.nashtech"
-  #profile = "devops"
 }
 
 terraform {
