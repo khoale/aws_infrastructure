@@ -113,7 +113,7 @@ resource "aws_instance" "default" {
   private_ip                  = lookup(each.value, "private-ip", null)
   source_dest_check           = lookup(each.value, "source-dest-check", null)
   ipv6_address_count          = var.ipv6-address-count < 0 ? null : var.ipv6-address-count
-  ipv6_addresses              = lookup(each.value, "ipv6-addresses", null) != null && length(lookup(each.value, "ipv6-addresses", "")) > 0 ? var.ipv6-addresses : null
+  ipv6_addresses              = lookup(each.value, "ipv6-addresses", null) != null && length(lookup(each.value, "ipv6-addresses", "")) > 0 ?lookup(each.value, "ipv6-addresses", null) : null
 
   vpc_security_group_ids = lookup(each.value, "security-groups", null)
 
