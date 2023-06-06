@@ -10,18 +10,6 @@ resource "aws_iam_role_policy" "bastion" {
   policy = data.aws_iam_policy_document.bastion-role-policy.json
 }
 
-# data "aws_iam_policy_document" "bastion-assume-role-policy" {
-#   statement {
-#     actions = [
-#       "sts:AssumeRole",
-#     ]
-
-#     resources = [
-#       aws_iam_role.bastion.arn
-#     ]
-#   }
-# }
-
 # Define what user/service have permission to execute the AssumeRole action is needed
 # We have a Role and we should define what user/service can assume that role
 # Note: "group" is not a valid principals https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
