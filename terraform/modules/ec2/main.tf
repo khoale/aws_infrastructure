@@ -94,7 +94,7 @@ data "aws_ami" "info" {
 resource "aws_iam_instance_profile" "default" {
   for_each = { for key, v in local.default_profiles : key => v }
   name     = each.value
-  role     = lookup(local.ec2-instances-good-form[each.key], "iam-role-default-name", "099720109477")
+  role     = lookup(local.ec2-instances-good-form[each.key], "iam-role-default-name", null)
 }
 
 resource "aws_instance" "default" {
