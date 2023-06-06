@@ -1,14 +1,3 @@
-# module "subnet-tags" {
-#   source = "../tags"
-
-#   project     = var.project
-#   environment = var.environment
-#   owner       = var.owner
-
-#   tags = {
-#     Description = "managed by terraform",
-#   }
-# }
 resource "aws_subnet" "public" {
   for_each                = var.public-subnet-numbers
   vpc_id                  = aws_vpc.vpc.id
