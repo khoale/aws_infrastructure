@@ -4,7 +4,6 @@ locals {
         name = "bastion-host"
         ami                           = "ami-0b13630a979679b27"
         ami-owner                     = "099720109477" // Amazon is the owner
-        region                        = "ap-southeast-1"
         instance-type                 = "t3a.micro"
         root-volume-size              = 10
         vpc-id                        = data.terraform_remote_state.network.outputs.dev-nashtech-devops-vpc.id
@@ -27,7 +26,6 @@ locals {
         name = "bastion-host-2"
         ami                           = "ami-0b13630a979679b27"
         ami-owner                     = "099720109477" // Amazon is the owner
-        region                        = "ap-southeast-1"
         instance-type                 = "t3a.micro"
         root-volume-size              = 10
         vpc-id                        = data.terraform_remote_state.network.outputs.dev-nashtech-devops-vpc.id
