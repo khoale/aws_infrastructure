@@ -1,5 +1,4 @@
 locals {
-  region               = var.region != "" ? var.region : data.aws_region.default.name
   root-iops            = var.root-volume-type == "io1" ? var.root-iops : 0
   ebs-iops             = var.ebs-volume-type == "io1" ? var.ebs-iops : 0
   availability-zone    = var.availability-zone
@@ -56,9 +55,6 @@ module "ec2-instance-tags" {
   tags = {
     Description = "managed by terraform",
   }
-}
-
-data "aws_region" "default" {
 }
 
 data "aws_availability_zones" "available" {
