@@ -61,26 +61,6 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-data "aws_caller_identity" "default" {
-}
-
-data "aws_iam_policy_document" "default" {
-  statement {
-    sid = "ec2defaultpolicy"
-
-    actions = [
-      "sts:AssumeRole",
-    ]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-
-    effect = "Allow"
-  }
-}
-
 data "aws_ami" "info" {
   for_each = { for index, v in local.ec2-instances : index => v.instance }
   filter {
