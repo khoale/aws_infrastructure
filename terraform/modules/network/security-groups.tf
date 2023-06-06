@@ -2,7 +2,7 @@ resource "aws_security_group" "this" {
   for_each    = var.security-groups
   name        = each.key
   vpc_id      = aws_vpc.vpc.id
-  description = "Instance default security group (only egress access is allowed)"
+  description = "Instance default security group"
   tags        = var.tags
 
   lifecycle {
