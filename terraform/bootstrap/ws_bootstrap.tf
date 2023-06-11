@@ -43,26 +43,6 @@ data "aws_iam_policy_document" "kms_use" {
       ]
     }
   }
-
-  # statement {
-  #   sid       = "Enable Permissions for Spectator"
-  #   effect    = "Allow"
-  #   resources = ["*"]
-
-  #   actions = [
-  #     "kms:List*",
-  #     "kms:Get*",
-  #     "kms:Decrypt",
-  #     "kms:DescribeKey"
-  #   ]
-
-  #   principals {
-  #     type = "AWS"
-  #     identifiers = [
-  #       aws_iam_user.spectator.arn
-  #     ]
-  #   }
-  # }
 }
 
 resource "aws_s3_bucket" "bootstrap" {
