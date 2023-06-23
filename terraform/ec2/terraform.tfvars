@@ -1,4 +1,4 @@
-security-group-name = "bastion-host"
+security_group_name = "bastion-host"
 
 environment  = "dev"
 
@@ -6,7 +6,7 @@ project = "nashtech-devops"
 
 owner        = "datton94"
 
-iam-role-default-name = "bastion-host"
+iam_role_default_name = "bastion-host"
 
-iam-instance-profile-name = "bastion-host"
+iam_instance_profile_name = "bastion-host"
 

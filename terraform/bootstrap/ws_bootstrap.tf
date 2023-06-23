@@ -22,7 +22,7 @@ resource "aws_kms_key" "terraform-bootstrap" {
 }
 
 resource "aws_kms_alias" "terraform-bootstrap" {
-  name          = "alias/terraform-${var.name}-${var.project}"
+  name          = "alias/terraform-${var.name}-${var.project}-0002"
   target_key_id = aws_kms_key.terraform-bootstrap.key_id
 }
 
@@ -38,15 +38,17 @@ data "aws_iam_policy_document" "kms_use" {
     principals {
       type = "AWS"
       identifiers = [
-        aws_iam_role.devops.arn,
+        #aws_iam_role.devops.arn,
+        "arn:aws:iam::377414509754:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccessAWS3_bf168735846c80aa",
         "arn:aws:iam::377414509754:user/dat.nguyen"
       ]
     }
   }
+
 }
 
 resource "aws_s3_bucket" "bootstrap" {
-  bucket = "terraform-${var.name}-${var.project}"
+  bucket = "terraform-${var.name}-${var.project}-0002"
 
   tags = module.labels.tags
 
@@ -57,20 +59,46 @@ resource "aws_s3_bucket_ownership_controls" "bootstrap" {  # https://stackoverfl
   bucket = aws_s3_bucket.bootstrap.id
 
   rule {
-    object_ownership = "BucketOwnerPreferred"
+    #object_ownership = "BucketOwnerPreferred"
+    object_ownership = "BucketOwnerEnforced"
   }
 }
 
-resource "aws_s3_bucket_acl" "bootstrap" {
-  bucket = aws_s3_bucket.bootstrap.bucket
-  acl    = "private"
+# resource "aws_s3_bucket_acl" "bootstrap" {
+#   bucket = aws_s3_bucket.bootstrap.bucket
+#   acl    = "private"
 
-  depends_on = [ aws_s3_bucket_ownership_controls.bootstrap ]
-}
+#   depends_on = [ aws_s3_bucket_ownership_controls.bootstrap ]
+# }
 
 resource "aws_s3_bucket_accelerate_configuration" "bootstrap" {
   bucket = aws_s3_bucket.bootstrap.bucket
   status = "Enabled"
+}
+
+resource "aws_s3_bucket_policy" "allow_access" {
+  bucket = aws_s3_bucket.bootstrap.id
+  policy = data.aws_iam_policy_document.allow_access.json
+}
+
+data "aws_iam_policy_document" "allow_access" {
+  statement {
+    principals {
+      type        = "AWS"
+      identifiers = [
+        "arn:aws:iam::377414509754:user/dat.nguyen"
+        ]
+    }
+
+    actions = [
+      "s3:*"
+    ]
+
+    resources = [
+      aws_s3_bucket.bootstrap.arn,
+      "${aws_s3_bucket.bootstrap.arn}/*",
+    ]
+  }
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bootstrap" {

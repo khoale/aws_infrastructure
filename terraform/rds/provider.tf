@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket         = "terraform-boostrap-nashtech-devops-0002"
-    key            = "ec2.tfstate"
+    key            = "rds.tfstate"
     region         = "ap-southeast-1"
     dynamodb_table = "terraform-boostrap-nashtech-devops"
     profile        = "datton.nashtech.saml"

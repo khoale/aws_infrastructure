@@ -18,7 +18,7 @@ locals {
         availability-zone             = data.terraform_remote_state.network.outputs.dev-public-subnet-0.availability_zone
         instance-count                = 2
         iam-role-default-name         = data.terraform_remote_state.bootstrap.outputs.bastion_role_name
-        iam-instance-profile-name     = var.iam-instance-profile-name
+        iam-instance-profile-name     = "bastion-host-1-profile"
         ebs-volume-name               = "volume of the Bastion host"
     }
 
@@ -39,7 +39,7 @@ locals {
         subnet_id                     = data.terraform_remote_state.network.outputs.dev-public-subnet-1.id
         availability-zone             = data.terraform_remote_state.network.outputs.dev-public-subnet-1.availability_zone
         instance-count                = 2
-        iam-role-default-name         = data.terraform_remote_state.bootstrap.outputs.bastion_role_name
+        iam-role-default-name         = "bastion-nashtech-devops-0002"
         iam-instance-profile-name     = "bastion-host-2-profile"
         ebs-volume-name               = "volume of the Bastion host"
     }
