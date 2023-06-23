@@ -55,21 +55,13 @@ resource "aws_s3_bucket" "bootstrap" {
   depends_on = [aws_kms_key.terraform-bootstrap, aws_kms_alias.terraform-bootstrap]
 }
 
-resource "aws_s3_bucket_ownership_controls" "bootstrap" {  # https://stackoverflow.com/questions/76049290/error-accesscontrollistnotsupported-when-trying-to-create-a-bucket-acl-in-aws
+resource "aws_s3_bucket_ownership_controls" "bootstrap" {
   bucket = aws_s3_bucket.bootstrap.id
 
   rule {
-    #object_ownership = "BucketOwnerPreferred"
     object_ownership = "BucketOwnerEnforced"
   }
 }
-
-# resource "aws_s3_bucket_acl" "bootstrap" {
-#   bucket = aws_s3_bucket.bootstrap.bucket
-#   acl    = "private"
-
-#   depends_on = [ aws_s3_bucket_ownership_controls.bootstrap ]
-# }
 
 resource "aws_s3_bucket_accelerate_configuration" "bootstrap" {
   bucket = aws_s3_bucket.bootstrap.bucket
