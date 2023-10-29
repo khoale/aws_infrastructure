@@ -1,8 +1,8 @@
-module "bastion-host" {
+module "sd1572-host" {
   source = "../modules/ec2"
-  name                          = "Bastion-host"
+  name                          = "sd1572-host"
 
-  ec2_instances                 = local.bastion_hosts
+  ec2_instances                 = local.sd1572_hosts
   generate_ssh_key_pair         = true
   owner                         = var.owner
   project                       = var.project

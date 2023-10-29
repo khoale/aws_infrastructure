@@ -8,7 +8,7 @@ locals {
                 cidr_blocks = "0.0.0.0/32"
             }
         }
-        bastion-host = {
+        sd1572-host = {
             ingress = {
                 from_port   = "22"
                 to_port     = "22"

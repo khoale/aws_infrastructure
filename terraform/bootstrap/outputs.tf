@@ -20,11 +20,11 @@ output "kms_bootstrap_alias_arn" {
 
 ########### GROUP / ROLE / USER ARN and NAME ###########
 
-output "bastion_role_arn" {
-  value = aws_iam_role.bastion.arn
+output "sd1572_role_arn" {
+  value = aws_iam_role.sd1572.arn
 }
 
-output "bastion_role_name" {
-  value = aws_iam_role.bastion.name
+output "sd1572_role_name" {
+  value = aws_iam_role.sd1572.name
 }
 

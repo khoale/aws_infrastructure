@@ -1,22 +1,22 @@
-resource "aws_iam_role" "bastion" {
-  name               = "bastion-${var.project}"
+resource "aws_iam_role" "sd1572" {
+  name               = "sd1572-${var.project}"
   path               = "/"
-  assume_role_policy = data.aws_iam_policy_document.trust-policies-bastion-assume-role.json
+  assume_role_policy = data.aws_iam_policy_document.trust-policies-sd1572-assume-role.json
 }
 
-resource "aws_iam_role" "bastion_2" {
-  name               = "bastion-${var.project}-0002"
+resource "aws_iam_role" "sd1572_2" {
+  name               = "sd1572-${var.project}-0002"
   path               = "/"
-  assume_role_policy = data.aws_iam_policy_document.trust-policies-bastion-assume-role.json
+  assume_role_policy = data.aws_iam_policy_document.trust-policies-sd1572-assume-role.json
 }
 
-resource "aws_iam_role_policy" "bastion" {
-  name   = "bastion-role-${var.project}-policy"
-  role   = aws_iam_role.bastion.id
-  policy = data.aws_iam_policy_document.bastion-role-policy.json
+resource "aws_iam_role_policy" "sd1572" {
+  name   = "sd1572-role-${var.project}-policy"
+  role   = aws_iam_role.sd1572.id
+  policy = data.aws_iam_policy_document.sd1572-role-policy.json
 }
 
-data "aws_iam_policy_document" "trust-policies-bastion-assume-role" {
+data "aws_iam_policy_document" "trust-policies-sd1572-assume-role" {
   statement {
     actions = [
       "sts:AssumeRole"
@@ -29,9 +29,9 @@ data "aws_iam_policy_document" "trust-policies-bastion-assume-role" {
   }
 }
 
-# We define what bastion role can do here Identity-base policies
+# We define what sd1572 role can do here Identity-base policies
 
-data "aws_iam_policy_document" "bastion-role-policy" {
+data "aws_iam_policy_document" "sd1572-role-policy" {
   statement {
     actions = [
       "*"
