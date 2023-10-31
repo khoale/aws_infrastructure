@@ -83,10 +83,10 @@ data "aws_ami" "info" {
   for_each = { for index, v in local.ec2_instances : index => v.instance }
   filter {
     name   = "image-id"
-    values = [lookup(each.value, "ami", "ami-03060465516794b47")]
+    values = [lookup(each.value, "ami", "ami-0fb974a4772b174a5")]
   }
 
-  owners = [lookup(each.value, "ami-owner", "099720109477")]
+  owners = [lookup(each.value, "ami-owner", "0fb974a4772b174a5")]
 }
 
 resource "aws_iam_instance_profile" "default" {
