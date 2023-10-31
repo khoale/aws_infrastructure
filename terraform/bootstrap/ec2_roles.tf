@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "sd1572-role-policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::terraform-boostrap-nashtech-devops"
+      "arn:aws:s3:::terraform-boostrap-nashtech-devops-1572"
     ]
   }
 }

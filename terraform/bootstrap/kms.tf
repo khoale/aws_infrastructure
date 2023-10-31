@@ -26,7 +26,7 @@ data "aws_iam_policy_document" "eks_dev_kms_use" {
       identifiers = [
         #"arn:aws:iam::377414509754:role/eks/eks-dev-cluster",
         "arn:aws:iam::377414509754:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccessAWS3_bf168735846c80aa",
-        "arn:aws:iam::377414509754:user/dat.nguyen"
+        "arn:aws:iam::667195621231:user/sd1572.nashtech.sam"
       ]
     }
   }

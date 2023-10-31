@@ -1,4 +1,4 @@
 name         = "eks"
 environment  = "dev"
 project-name = "nashtech-devops"
-owner        = "datton94"
+owner        = "sd1572"

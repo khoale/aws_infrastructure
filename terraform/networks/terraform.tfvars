@@ -31,4 +31,4 @@ private-subnet-numbers-staging = {
 
 name         = "network"
 project-name = "nashtech-devops"
-owner        = "datton94"
+owner        = "sd1572"

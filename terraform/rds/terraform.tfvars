@@ -1,6 +1,6 @@
 environment  = "dev"
 project      = "nashtech-devops"
-owner        = "datton94"
+owner        = "sd1572"
 # DON'T DO THIS IN REPO
 #default-db-password = "any-password-i-don't-know"
 # DO THIS INSTEAD FROM YOU TERMINAL CLI

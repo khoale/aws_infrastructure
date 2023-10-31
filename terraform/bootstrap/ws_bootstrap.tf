@@ -40,7 +40,7 @@ data "aws_iam_policy_document" "kms_use" {
       identifiers = [
         #aws_iam_role.devops.arn,
         "arn:aws:iam::377414509754:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_AdministratorAccessAWS3_bf168735846c80aa",
-        "arn:aws:iam::377414509754:user/dat.nguyen"
+        "arn:aws:iam::667195621231:user/sd1572.nashtech.sam"
       ]
     }
   }
@@ -77,8 +77,8 @@ data "aws_iam_policy_document" "allow_access" {
   statement {
     principals {
       type        = "AWS"
-      identifiers = [
-        "arn:aws:iam::377414509754:user/dat.nguyen"
+        = [
+        "arn:aws:iam::667195621231:user/sd1572.nashtech.sam"
         ]
     }
 

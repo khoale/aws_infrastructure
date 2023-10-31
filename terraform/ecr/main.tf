@@ -3,5 +3,5 @@ module "ecr" {
   name        = "ecr"
   project     = "nashtech-devops"
   environment = "mgmt"
-  owner       = "datton94"
+  owner       = "sd1572"
 }
