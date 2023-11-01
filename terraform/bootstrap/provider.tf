@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = "~> 1.3.0"
+  required_version = "~> 1.6.2"
 
   required_providers {
     aws = {
@@ -13,7 +13,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "terraform-boostrap-nashtech-devops-1572-0002"
+    bucket         = "terraform-boostrap-nashtech-devops-1572"
     key            = "terraform.tfstate"
     region         = "ap-southeast-1"
     dynamodb_table = "terraform-boostrap-nashtech-devops-1572"
